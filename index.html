@@ -1,1 +1,225 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pepsi Product Card</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css?family=Poppins:300,400,600&display=swap");
+
+    :root {
+      --clr: #005cbf;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0a0a0a, #002b55);
+    }
+
+    .card {
+      position: relative;
+      width: 300px;
+      height: 350px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: 0.5s;
+      cursor: pointer;
+    }
+
+    .card.active {
+      width: 600px;
+    }
+
+    .circle {
+      position: absolute;
+      inset: 0;
+      border-radius: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .circle::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 350px;
+      height: 350px;
+      border-radius: 50%;
+      background: #191919;
+      border: 8px solid var(--clr);
+      transition: 0.5s, background 0.5s;
+      filter: drop-shadow(0 0 10px var(--clr)) drop-shadow(0 0 60px var(--clr));
+    }
+
+    .card.active .circle::before {
+      width: 100%;
+      height: 100%;
+      border-radius: 20px;
+      background: var(--clr);
+    }
+
+    .logo {
+      position: relative;
+      width: 250px;
+      transition: 0.5s;
+    }
+
+    .card.active .logo {
+      transform: scale(0);
+    }
+
+    .product_img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0) rotate(315deg);
+      height: 300px;
+      transition: 0.5s ease-in-out;
+      z-index: 2;
+    }
+
+    .card.active .product_img {
+      top: 25%;
+      left: 75%;
+      height: 530px;
+      transform: translate(-50%, -50%) scale(1) rotate(15deg);
+    }
+
+    .content {
+      position: absolute;
+      width: 50%;
+      left: 20%;
+      padding: 20px;
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.5s;
+    }
+
+    .card.active .content {
+      opacity: 1;
+      visibility: visible;
+      left: 20px;
+      transition-delay: 0.3s;
+    }
+
+    .content h2 {
+      color: #fff;
+      text-transform: uppercase;
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+
+    .content p {
+      color: #fff;
+      margin-bottom: 15px;
+      line-height: 1.4em;
+    }
+
+    .content a {
+      color: #fff;
+      background: #d52b1e;
+      padding: 10px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .content a:hover {
+      background: #b32419;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .card.active {
+        width: 350px;
+        height: 500px;
+      }
+
+      .card.active .product_img {
+        height: 350px;
+        top: 35%;
+        left: 50%;
+      }
+
+      .content {
+        width: 80%;
+        left: 10%;
+        bottom: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        width: 280px;
+        height: 320px;
+      }
+
+      .card.active {
+        width: 280px;
+        height: 500px;
+      }
+
+      .circle::before {
+        width: 280px;
+        height: 280px;
+      }
+
+      .logo {
+        width: 200px;
+      }
+
+      .card.active .product_img {
+        height: 280px;
+        top: 40%;
+      }
+
+      .content {
+        text-align: center;
+        width: 100%;
+        left: 0;
+      }
+
+      .content h2 {
+        font-size: 1.5em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card" id="pepsiCard">
+    <div class="circle">
+      <img src="https://i.ibb.co/4nG9q6c1/1000-png.png" alt="Pepsi Logo" class="logo">
+    </div>
+    <img src="https://i.ibb.co/4nG9q6c1/1000-png.png" alt="Pepsi Can" class="product_img">
+    <div class="content">
+      <h2>Pepsi Cola</h2>
+      <p>Experience the bold, refreshing taste of Pepsi. The perfect companion for any occasion.</p>
+      <a href="https://amvip22.vercel.app/">Shop Now</a>
+    </div>
+  </div>
+
+  <script>
+    const card = document.getElementById('pepsiCard');
+    card.addEventListener('click', () => {
+      card.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>

@@ -1,16 +1,36 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pepsi Product Card</title>
+  <title>𓄂⍣⃝AM VIP⍣⃟  </title>
   <style>
     @import url("https://fonts.googleapis.com/css?family=Poppins:300,400,600&display=swap");
+    @import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
+    @import url("https://use.fontawesome.com/releases/v6.5.1/css/all.css");
 
     :root {
-      --clr: #005cbf;
-    }
+      --clr: #6d8b74;
+        /* Earthy Color Palette */
+  --primary-color: #6d8b74;  /* Forest green */
+  --secondary-color: #3a3a3a,#ff2770,#3a3a3a;/* Sage green */
+  --text-color: #3a3a3a;     /* Dark earth */
+  --bg-color: #f5f0e1;       /* Cream */
+  --form-bg: #ffffff;        /* White */
+  --border-color: #d1ba95;   /* Wheat */
+  --shadow-color: rgba(0, 0, 0, 0.08);
+  --error-color: #c37b89;    /* Dusty rose */
+  --success-color: #88b7b5;  /* Sea green */
+}
+
+[data-theme="dark"] {
+  --primary-color: #88b7b5;   /* Sea green */
+  --secondary-color: #6d8b74; /* Forest green */
+  --text-color: #e1d4c7;      /* Warm cream */
+  --bg-color: #2c3e3b;        /* Deep forest */
+  --form-bg: url(https://i.ibb.co/xqMKNyRM/Happy-diwali-wishes-2025-in-hindi-1760862859727-1760862866148.webp);         /* Dark slate */
+  --border-color: #5a716e;    /* Weathered stone */
+}
 
     * {
       margin: 0;
@@ -24,10 +44,27 @@
       justify-content: center;
       align-items: center;
       min-height: 100vh;
-      background: linear-gradient(135deg, #0a0a0a, #002b55);
     }
 
-    .card {
+   
+
+  .box {
+    display: flex;
+          min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    width: 80vh;
+    height: 80vh;
+    background: url("tenor1.gif") no-repeat center center/cover;
+  }
+
+  .diwali-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 50px rgba(255, 220, 100, 0.9);
+  }
+
+
+    .card {    
       position: relative;
       width: 300px;
       height: 350px;
@@ -36,10 +73,12 @@
       align-items: center;
       transition: 0.5s;
       cursor: pointer;
+      
     }
 
     .card.active {
       width: 600px;
+      
     }
 
     .circle {
@@ -58,19 +97,32 @@
       left: 0;
       width: 350px;
       height: 350px;
-      border-radius: 50%;
-      background: #191919;
-      border: 8px solid var(--clr);
+      border-radius: 50%;           
+      border: 8px solid var(--primary-color);
       transition: 0.5s, background 0.5s;
+  background: linear-gradient(90deg, 
+              var(--primary-color) 10%, 
+              var(--secondary-color) 50%, 
+              var(--primary-color) 100%);
+        background-size: 400% auto;
+  animation: gradientFlow 3s ease infinite;
+
       filter: drop-shadow(0 0 10px var(--clr)) drop-shadow(0 0 60px var(--clr));
     }
 
+@keyframes gradientFlow {
+  0% { background-position: 0% center; }
+  50% { background-position: 100% center; }
+  100% { background-position: 0% center; }
+}
+  
     .card.active .circle::before {
       width: 100%;
       height: 100%;
       border-radius: 20px;
-      background: var(--clr);
-    }
+  background: linear-gradient(0deg, transparent, transparent, 
+              rgba(109, 139, 116, 0.3), rgba(109, 139, 116, 0.3), rgba(109, 139, 116, 0.3));
+      }
 
     .logo {
       position: relative;
@@ -99,9 +151,10 @@
       transform: translate(-50%, -50%) scale(1) rotate(15deg);
     }
 
-    .content {
+    .content {    
       position: absolute;
       width: 50%;
+      top: 20%px;
       left: 20%;
       padding: 20px;
       opacity: 0;
@@ -131,7 +184,12 @@
 
     .content a {
       color: #fff;
-      background: #d52b1e;
+        background: linear-gradient(90deg, 
+              var(--primary-color) 0%, 
+              var(--secondary-color) 50%, 
+              var(--primary-color) 100%);
+  background-size: 400% auto;
+  animation: gradientFlow 3s ease infinite;
       padding: 10px 20px;
       border-radius: 10px;
       text-decoration: none;
@@ -159,8 +217,8 @@
       }
 
       .content {
-        width: 80%;
-        left: 10%;
+        width: 100%;
+        left: 0%;
         bottom: 20px;
       }
     }
@@ -183,35 +241,47 @@
 
       .logo {
         width: 200px;
+        top: -5%;
       }
 
       .card.active .product_img {
-        height: 280px;
-        top: 40%;
+        
+        height: 200px;
+        top: 20%;
       }
 
       .content {
         text-align: center;
         width: 100%;
-        left: 0;
+        left: 10;
+        top:40%;
       }
 
       .content h2 {
         font-size: 1.5em;
       }
     }
+
+  
   </style>
 </head>
 <body>
+  
+    <div class="box">
+
   <div class="card" id="pepsiCard">
+            <div class="border-line"></div>
+
     <div class="circle">
-      <img src="https://i.ibb.co/4nG9q6c1/1000-png.png" alt="Pepsi Logo" class="logo">
+      <img src="https://i.ibb.co/4nG9q6c1/1000-png.png" alt="AMVIP Logo" class="logo">
     </div>
-    <img src="https://i.ibb.co/4nG9q6c1/1000-png.png" alt="Pepsi Can" class="product_img">
+    <img src="vip-very-important-person.gif" alt="AMVIP" class="product_img">
     <div class="content">
-      <h2>Pepsi Cola</h2>
-      <p>Experience the bold, refreshing taste of Pepsi. The perfect companion for any occasion.</p>
-      <a href="https://amvip22.vercel.app/">Shop Now</a>
+      <h2> 𓄂⍣卂𝔪 Ṽ̶เק ⍣⃟  </h2>
+      <p>Prediction
+Feel the True Power of Our Predictor
+Here's how it works: our predictor utilizes direct APIs related to gaming sites. We employ advanced technology to fetch data before the game starts, providing you with a 100% guarantee.</p>
+      <a href="https://amvip22.vercel.app/">START</a>
     </div>
   </div>
 
